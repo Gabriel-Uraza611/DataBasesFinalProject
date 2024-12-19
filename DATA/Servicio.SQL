@@ -1,0 +1,20 @@
+INSERT INTO Servicio (NombreServicio) 
+VALUES 
+    ('Medicina General'), 
+    ('Radiología'), 
+    ('Nefrología'), 
+    ('Infectología'), 
+    ('Laboratorios'), 
+    ('Ginecología'), 
+    ('Odontologia'), 
+    ('Oftalmología'), 
+    ('Gastroenterología'), 
+    ('Cardiología'), 
+    ('Ortopedia'), 
+    ('Psiquiatría'), 
+    ('Oncología'), 
+    ('Pediatría'), 
+    ('Promocion Y prevencion'), 
+    ('Neurología'), 
+    ('Hematología'), 
+    ('Obstetricia');

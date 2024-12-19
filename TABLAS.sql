@@ -50,22 +50,19 @@ CREATE TABLE Contrato (
     FOREIGN KEY (EmpresaId) REFERENCES Empresa(EmpresaId)
 );
 
+CREATE TABLE Servicio (
+    ServicioId SERIAL PRIMARY KEY,      -- Identificador único del servicio
+    NombreServicio VARCHAR(200) NOT NULL -- Nombre del servicio   
+);
 
 CREATE TABLE IPS (
     IPSId SERIAL PRIMARY KEY,         -- Identificador único de la IPS
     NIT VARCHAR(20) NOT NULL UNIQUE,  -- Número de identificación tributaria de la IPS
     RazonSocial VARCHAR(200) NOT NULL, -- Razón social de la IPS
-    NivelAtencion VARCHAR(100)        -- Nivel de atención proporcionado
+    NivelAtencion VARCHAR(100),        -- Nivel de atención proporcionado
+    ServicioId INT NOT NULL,
+    FOREIGN KEY (ServicioId) REFERENCES Servicio(ServicioId)
 );
-
-
-CREATE TABLE Servicio (
-    ServicioId SERIAL PRIMARY KEY,      -- Identificador único del servicio
-    NombreServicio VARCHAR(200) NOT NULL, -- Nombre del servicio
-    IPSId INT NOT NULL,                  -- Relación con la tabla IPS
-    FOREIGN KEY (IPSId) REFERENCES IPS(IPSId)
-);
-
 
 CREATE TABLE Beneficiario (
     BeneficiarioId SERIAL PRIMARY KEY, -- Identificador único del beneficiario
@@ -117,3 +114,4 @@ CREATE TABLE PagoAporte (
     FOREIGN KEY (CotizanteId) REFERENCES Cotizante(CotizanteId),
     FOREIGN KEY (EmpresaId) REFERENCES Empresa(EmpresaId)
 );
+
